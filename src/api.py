@@ -1,32 +1,28 @@
-from typing import Optional
-from fastapi import FastAPI
+import yaml
+import uvicorn
 import pandas as pd
-from src.utils import feature_engineering
+from fastapi import FastAPI
 
+with open("src/config.yaml", "r") as file:
+    _CONFIG = yaml.safe_load(file)
+
+data = pd.read_csv(_CONFIG["processed_file_path"])
 app = FastAPI()
-
-data = pd.read_parquet("data/chicago_taxi_trips_2020.parquet")
-data = feature_engineering(data)
-
-
-@app.get("/")
-async def read_root():
-    return {"Hello": "World"}
 
 
 @app.get("/total_trips/")
 def return_total_trip_of_day(start: str, end: str):
     total_trips = data[["date", "unique_key"]][(data["date"] >= start) & (data["date"] <= end)]\
-                .groupby(["date"]).count()\
-                .reset_index()\
-                .rename({"unique_key": "total_trips"}, axis=1)
+                    .groupby(["date"]).count()\
+                    .reset_index()\
+                    .rename({"unique_key": "total_trips"}, axis=1)
 
     return {"data": total_trips.to_dict('records')}
 
 
 @app.get("/average_fare_heatmap/")
 def get_average_fare_heatmap(date: str):
-    fare_heatmap = data[["date", "s2id", "fare"]][(data["date"]==date) & (data['s2id']!=0)]\
+    fare_heatmap = data[["date", "s2id", "fare"]][(data["date"] == date) & (data['s2id'] != 0)]\
                     .groupby(["s2id"]).mean()\
                     .reset_index()
 
@@ -42,3 +38,8 @@ def get_average_speed(date: str):
     return_dict = [{"average_speed": avg_speed}]
 
     return {"data": return_dict}
+
+
+if __name__ == '__main__':
+    print("Starting analytics at port", _CONFIG["port"])
+    uvicorn.run(app, host=_CONFIG["host"], port=_CONFIG["port"])

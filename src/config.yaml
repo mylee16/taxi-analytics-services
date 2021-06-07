@@ -1,0 +1,11 @@
+# file download
+url: 'https://drive.google.com/u/0/uc?id=1QLBGFOoKw_3-iM58q4unWfwHmPqfnrYr&export=download'
+output_path: 'data/chicago_taxi_trips_2020.parquet'
+
+# pipeline
+parquet_path: "data/chicago_taxi_trips_2020.parquet"
+processed_file_path: "data/processed_data.csv"
+
+#api
+port: 8080
+host: '0.0.0.0'
