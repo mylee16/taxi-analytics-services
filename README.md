@@ -22,7 +22,7 @@ In this assignment, we aim to build a Web Service that provides basic analytics 
 The API is based on [fastapi](https://fastapi.tiangolo.com/). The code is in python 3.6.7 and is dockerised using docker-compose. The API provides 3 functionalities:
 
 1. Total Trips per Day - Returns the total number of trips in the date range provided.
-```curl http://localhost:8080/total_trips?start=2020-01-01&end=2020-01-31```
+```curl http://localhost:8080/total_trips/\?start\=2020-01-01\&end\=2020-01-31```
 1. Fare Heatmap - The average fare per pick up location [S2 ID](http://s2geometry.io/) at level 16 for the given date, based on the pickup time of the trip.
 ```curl http://localhost:8080/average_fare_heatmap/?date=2020-01-01```
 1. Average speed of trips (km/h) that ended in the past 24 hours from the provided date.
