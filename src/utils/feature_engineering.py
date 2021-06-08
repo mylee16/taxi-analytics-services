@@ -1,12 +1,11 @@
-import numpy as np
-import pandas as pd
 import s2cell
+import pandas as pd
 
 
 def data_preprocessing(df):
     """ Feature engineering and dropping of unused columns, including:
     1. Creating YYYY-MM-DD date column
-    2. Creating s2id from s2cell paclage
+    2. Creating s2id from s2cell package
     3. dropping all unused columns
     """
     # create date
@@ -14,7 +13,7 @@ def data_preprocessing(df):
 
     # create s2id from s2cell
     df["s2id"] = df[["pickup_latitude", "pickup_longitude"]]\
-                .apply(lambda x: s2cell.lat_lon_to_cell_id(x.pickup_latitude, x.pickup_longitude, 18)\
+                .apply(lambda x: s2cell.lat_lon_to_cell_id(x.pickup_latitude, x.pickup_longitude, 16)\
                 if x.notnull().all() else 0, axis=1)
     df["s2id"] = df["s2id"].astype(str)
 
