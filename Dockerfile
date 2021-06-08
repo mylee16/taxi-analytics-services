@@ -6,8 +6,6 @@ RUN ["pip", "install", "-r", "requirements.txt"]
 
 COPY /src /src
 
-RUN ["mkdir", "data"]
-RUN ["python", "-m", "src.data_download"]
 RUN ["python", "-m", "src.pipeline"]
 
 EXPOSE 8080

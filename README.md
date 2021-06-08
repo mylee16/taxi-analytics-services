@@ -25,17 +25,10 @@ The API is based on [fastapi](https://fastapi.tiangolo.com/). The code is in pyt
 ``
 
 
-docker build . -t mengyonglee/gojek
-docker run -p 8080:8080 -ti --rm mengyonglee/gojek
-
 ## Usage
 1. To build the docker environment:
-```docker build . -t gojek/mengyonglee```
-2. To train the model:
-```python -m src.train```
-- Model training is optimized for GPU. To use GPU, change [src/config](/src/config) use_cuda to True
-3. To make prediction on the test dataset
-```python -m src.evaluate```
-4. Prediction output will be stored in `prediction/output.csv`
+```docker-compose -f docker-compose.yml build```
+2. To run the api service:
+```docker-compose -f docker-compose.yml up```
 
- Configuration files for src/train and src/evaluate can be found in [src/config](/src/config). 
+ Configuration files for src/api and src/pipeline can be found in [src/config](/src/config). 

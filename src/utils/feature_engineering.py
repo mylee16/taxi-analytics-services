@@ -3,7 +3,7 @@ import pandas as pd
 import s2cell
 
 
-def feature_engineering(df):
+def data_preprocessing(df):
     """ Feature engineering and dropping of unused columns, including:
     1. Creating YYYY-MM-DD date column
     2. Creating s2id from s2cell paclage
