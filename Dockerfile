@@ -8,5 +8,8 @@ COPY /src /src
 
 RUN ["python", "-m", "src.pipeline"]
 
+RUN ["python", "-m", "pytest", "tests"]
+
+
 EXPOSE 8080
 ENTRYPOINT ["python", "-m", "src.api"]

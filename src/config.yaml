@@ -5,6 +5,7 @@ output_path: 'data/chicago_taxi_trips_2020.parquet'
 # pipeline
 parquet_path: "data/chicago_taxi_trips_2020.parquet"
 processed_file_path: "data/processed_data.csv"
+s2id_level: 16
 
 #api
 port: 8080

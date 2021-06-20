@@ -34,14 +34,14 @@ run ```bin/setup```
 2. To run the api service:
 run ```bin/run```
 
- Configuration files for src/api and src/pipeline can be found in [src/config](/src/config). 
+Configuration files for src/api and src/pipeline can be found in [src/config](/src/config). 
 
 ## Design
 This project consist of two main components, `src/api.py` and `src/pipeline.py`. The project is then dockerised and packages executables in `bin/run` and `bin/setup`. 
 
 1. `src/pipeline.py`
 
-`src/pipeline` takes in the url of the parquet file, and output a preprocessed csv file. `src/pipeline` consist of a few components, namely 1. data_downloader, 2. feature_engineering. data_downloader downloads the parquet data using gdown package into /data directory. feature_engineering reads in a pandas dataframe, creates `date` and `s2id` features, and remove other unnecessary columns. The processed output is saved under `data/processed_data.csv`.
+`src/pipeline` takes in the url of the parquet file, and output a preprocessed csv file. `src/pipeline` consist of a two components, namely 1. data_downloader, 2. feature_engineering. data_downloader downloads the parquet data using gdown package into /data directory. feature_engineering reads in a pandas dataframe, creates `date` and `s2id` features, and remove other unnecessary columns. The processed output is saved under `data/processed_data.csv`.
 
 
 2. `src/api.py`
@@ -51,7 +51,7 @@ There are 3 GET functionalities, 1. total_trips, 2. average_fare_heatmap, and 3.
 
 3. `bin/setup`
 
-The project is dockerised using docker-compose. First, pytest is run to check for code coverage. Next, the dockerfile is executed, including installing python packages and build the container.  
+The project is dockerised using docker-compose. First, pytest is run to check for code coverage. Next, the dockerfile is executed, including installing python packages and building the container.  
 
 
 4. `bin/run`

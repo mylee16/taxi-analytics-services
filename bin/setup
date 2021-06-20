@@ -1,4 +1,2 @@
 #!/bin/sh
-
-python -m pytest tests
 docker-compose -f docker-compose.yml build
