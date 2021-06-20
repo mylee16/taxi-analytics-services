@@ -22,11 +22,10 @@ def test_return_average_fare_heatmap():
     result = response.json()
     heatmap_dict = dict()
     for sub in result["data"]:
-        print(sub)
         heatmap_dict[str(sub["s2id"])] = sub["fare"]
 
     assert response.status_code == 200
-    assert heatmap_dict["9803813108609712128"] == 43.79
+    assert heatmap_dict["9803813108492271616"] == 43.79
 
 
 def test_return_average_speed_24hrs():
