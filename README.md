@@ -1,11 +1,5 @@
 # Taxi Analytics Service
 
-<p align="center">
-  <img src="img/Gojek-Logo-Horizontal.jpeg" width=50%/>
-  <br>                  
-</p>
-
-
 Author: Mengyong Lee | [LinkedIn](https://www.linkedin.com/in/mylee1/) | [Github](https://github.com/mylee16)
 
 In this assignment, we aim to build a Web Service that provides basic analytics over [Chicago Taxi Trips dataset](https://data.cityofchicago.org/Transportation/Taxi-Trips/wrvz-psew). The dataset includes taxi trips in Chicago for the year 2020.
