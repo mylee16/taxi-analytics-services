@@ -1,4 +1,4 @@
-# Gojek Software Engineering - Big Data and Maching Learning (Data Science Platform Team) Interview
+# Taxi Analytics Service
 
 <p align="center">
   <img src="img/Gojek-Logo-Horizontal.jpeg" width=50%/>
